@@ -1,6 +1,8 @@
 // import FunCom from './jsx/FunCom';
 // import ClassCom from './components/ClassCom';
-import Parent from './props/child-parent/Parent';
+// import Parent from './props/child-child/Parent';
+
+import Parent from './state/stateLifting/functionalCom/Parent';
 
 function App() {
   return (
