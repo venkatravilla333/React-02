@@ -2,7 +2,7 @@
 // import ClassCom from './components/ClassCom';
 // import Parent from './props/child-child/Parent';
 
-import Parent from './state/stateLifting/functionalCom/Parent';
+import Parent from './state/globalState/react-components/classCom/Parent';
 
 function App() {
   return (
