@@ -2,11 +2,11 @@
 // import ClassCom from './components/ClassCom';
 // import Parent from './props/child-child/Parent';
 
-import Parent from './state/globalState/react-components/classCom/Parent';
+import Parent from './life-cycle-methods-(in class only)/Parent';
 
 function App() {
   return (
-    <div>
+    <div className='App'>
       {/* <h1>App component</h1> */}
       {/* {FunCom()} */}
       {/* <FunCom /> */}
