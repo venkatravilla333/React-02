@@ -2,7 +2,8 @@
 // import ClassCom from './components/ClassCom';
 // import Parent from './props/child-child/Parent';
 
-import Parent from './life-cycle-methods-(in class only)/Parent';
+import Container from './side-effects/unmount/Container';
+import Parent from './side-effects/unmount/classCom/Parent';
 
 function App() {
   return (
@@ -14,7 +15,7 @@ function App() {
       {/* <ClassCom /> */}
       {/* <FunCom /> */}
       {/* <Parent /> */}
-      <Parent />
+      <Container />
     </div>
   );
 }
