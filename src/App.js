@@ -3,7 +3,7 @@
 // import Parent from './props/child-child/Parent';
 
 import Container from './side-effects/unmount/Container';
-import Parent from './side-effects/unmount/classCom/Parent';
+import Parent from './side-effects/api-calls/context-api/classCom/Parent';
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       {/* <ClassCom /> */}
       {/* <FunCom /> */}
       {/* <Parent /> */}
-      <Container />
+      <Parent />
     </div>
   );
 }

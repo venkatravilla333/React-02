@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import A from './A';
 import B from './B';
+import axios from 'axios';
 
 export var nameContext = React.createContext('Sachin');
 export var ageContext = React.createContext(40);
@@ -9,6 +10,7 @@ export var numContext = React.createContext(0);
 
 function Parent() {
   var [num, setNum] = useState(0);
+
   return (
     <numContext.Provider value={{ num, setNum }}>
       <incomeContext.Provider value={200000}>
