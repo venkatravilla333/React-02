@@ -24,7 +24,7 @@ function J({ data, fetchPosts }) {
 
 var mapStateToProps = (state) => {
   return {
-    data: state,
+    data: state.posts,
   };
 };
 
