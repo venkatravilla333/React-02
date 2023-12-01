@@ -3,7 +3,8 @@
 // import Parent from './props/child-child/Parent';
 
 import Container from './side-effects/unmount/Container';
-import Parent from './Refs/functionalCom/InteractDomElement';
+import ReferValue from './Refs/classCom/ReferValue';
+import Parent from './portals/Parent';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
       {/* <ClassCom /> */}
       {/* <FunCom /> */}
       {/* <Parent /> */}
+      {/* <Parent /> */}
+      {/* <ReferValue /> */}
       <Parent />
     </div>
   );

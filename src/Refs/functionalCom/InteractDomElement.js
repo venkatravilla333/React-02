@@ -5,11 +5,16 @@ function InteractDomElement() {
 
   useEffect(() => {
     inputRef.current.focus();
-    console.log(inputRef);
   }, []);
+
+  var getInputValue = () => {
+    console.log(inputRef.current.value);
+  };
+
   return (
     <div>
       <input type='text' ref={inputRef} />
+      <button onClick={getInputValue}>click</button>
     </div>
   );
 }

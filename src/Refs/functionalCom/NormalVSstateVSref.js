@@ -1,6 +1,6 @@
 import React, { useReducer, useRef, useState } from 'react';
 
-function Parent() {
+function normalVSstateVSref() {
   var normalValue = 0;
   var [stateValue, setStateValue] = useState(0);
 
@@ -46,4 +46,4 @@ function Parent() {
   );
 }
 
-export default Parent;
+export default normalVSstateVSref;
