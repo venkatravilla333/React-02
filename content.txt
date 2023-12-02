@@ -529,6 +529,121 @@ package.lock.json
        3) Store: We can create store by using createStore () method which is from redux.
 
       
+    2) Redux:
+        -----
+
+    - Redux is a popular state management library for React applications. It provides a global store that holds the application's state, and any component can access the state and dispatch actions to update the state.
+ 
+    - Redux follows a unidirectional data flow, making it easier to manage and track state changes in large applications.
+
+      Core principles in redux:
+
+       1) Action: Action is an object with type property.
+   
+       2) Reducer: Reducer is a function it receives initialState and action and it return new state depends upon action.
+
+       3) Store: We can create store by using createStore () method which is from redux.
+
+React-redux
+-----------
+
+React-Redux is a library for integrating the React library with the Redux state management library in a React application. React is a JavaScript library for building user interfaces, and Redux is a predictable state container for JavaScript apps, commonly used with React for managing the state of a web application in a more organized and scalable way.
+
+Here are the main components and concepts in React-Redux:
+
+Provider: 
+-------
+
+Wraps the entire React application and makes the Redux store available to all components in the component tree.
+
+connect() Function: 
+------------------
+
+React-Redux provides a connect() function that creates container components. These container components are responsible for connecting React components to the Redux store. The connect() function takes two main arguments: mapStateToProps and mapDispatchToProps. These functions define how to retrieve state from the Redux store and how to dispatch actions.
+
+The connect function is a crucial part of the React-Redux library, and it is used to connect a React component to the Redux store. It is a higher-order function (HOC) that wraps your component and provides it with the necessary props to interact with the Redux store.
+
+Here's how the connect function is typically used:
+
+
+import { connect } from 'react-redux';
+
+// Define a React component
+
+class MyComponent extends React.Component {
+  // Your component logic here
+}
+
+// Define a function to map state from the Redux store to component props
+
+const mapStateToProps = (state) => {
+  return {
+    // Map state properties to component props
+    someProp: state.someProp,
+    anotherProp: state.anotherProp,
+  };
+};
+
+// Define a function to map dispatch actions to component props
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    // Map action creators to component props
+    someAction: () => dispatch(someAction()),
+    anotherAction: () => dispatch(anotherAction()),
+  };
+};
+
+// Connect the component to the Redux store
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyComponent);
+
+Here's a breakdown of the key parameters passed to the connect function:
+
+mapStateToProps:
+---------------
+This function is used to map the state from the Redux store to the props of your component. It takes the current state as an argument and returns an object that defines the props your component needs.
+
+mapDispatchToProps:
+------------------
+It is used to map action creators to the props of your component. It takes the dispatch function as an argument and returns an object with the mapped actions.
+
+connect(mapStateToProps, mapDispatchToProps)(MyComponent):
+----------------------------------------------------------
+The connect function returns a new function that you can use to wrap your React component. The resulting connected component will receive the state and actions as props.
+Once your component is connected using connect, it can access the Redux state and dispatch actions as props. For example:
+
+
+// Inside MyComponent
+
+console.log(this.props.someProp); // Accessing state
+
+this.props.someAction(); // Dispatching an action
+
+This pattern helps in creating components that are connected to the global Redux state, making it easy to manage and update the state in a React application.
+
+
+In functional component
+-----------------------
+
+useSelector and useDispatch are two hooks provided by the React Redux library, which is commonly used for state management in React applications.
+
+useSelector:
+-----------
+
+- useSelector is used to extract data from the Redux store.
+- It takes a selector function as an argument, which is used to select a specific piece of data from the Redux store's state. 
+
+useDispatch:
+-----------
+
+- useDispatch is used to dispatch actions to the Redux store.
+- It returns a reference to the dispatch function from the Redux store.
+- The dispatch function is used to send actions to the Redux store, triggering state changes.
+
+In summary, useSelector is used to read data from the Redux store, and useDispatch is used to dispatch actions to update the state in the Redux store. Together, these hooks facilitate the integration of React components with the Redux state management system.
+
+      
      Global state
      ------------
 
@@ -543,5 +658,411 @@ package.lock.json
          -Context API
 
          -redux
+
+
+9) Performance?
+   ===========
+  
+
+What is Conditional rendering?
+=============================
+
+
+   - Conditional rendering in React.js is the process of displaying different components or content based on certain conditions or state values.
+ 
+   - It allows developers to control the output of the user interface based on specific conditions, such as user interactions, data availability, or component state changes.
+
+     1) If statements: You can use regular JavaScript if else statements to conditionally render components or elements.
+
+     2) Ternary operator: The ternary operator is a concise way to conditionally render content based on condition. It has condition ? expression1:expression2
+
+     3) Logical && operator: In cases where you want to conditionally render content only when a certain condition is true, you can use the && operator.
+
+   - Conditional rendering is a powerful concept in React because it enables developers to build dynamic and interactive user interfaces by showing different content based on the application's state and user interactions
+
+
+What is Fragment?
+================
+
+
+   - In React.js, a Fragment is a special type of component that allows you to group multiple child elements without adding an extra DOM element.
+ 
+   - It was introduced as a feature in React 16.2 to address the common use case where developers needed to return multiple elements from a component's render method without wrapping them in a parent element.
+
+   - Prior to the introduction of Fragments, if you wanted to return multiple elements from a component, you had to wrap them inside a single parent element.
+
+   - With Fragments, you can achieve the same result without introducing an extra <div> element.
+ 
+   - By using Fragments, you keep your JSX cleaner and reduce the number of DOM elements, which can lead to better performance in some cases.
+
+   - It's important to note that using Fragment doesn't add any additional functionality to your components; they are purely a syntax feature to make your JSX more concise and organized.
+
+
+What is HOC?
+===========
+
+
+   - In simple terms, an HOC is a function that takes a component as input and returns a new component with additional props or behaviors.
+
+   - The purpose of HOCs is to encapsulate and share common functionality across different components without the need for code duplication. It allows you to reuse component logic in your application.
+
+   - They are commonly used for tasks like logging, authentication, authorization, and sharing state or behavior among multiple components.
+
+   - It's worth noting that the React team has recommended using hooks (e.g., useState, useReducer, etc.) for managing local state within components, which makes HOCs less commonly used for state management in modern React applications. Hooks provide a more concise and straightforward approach for managing local state without the need for higher-order                components. However, HOCs can still be valuable for other scenarios like code reuse, logic separation, and wrapping third-party components.
+
+  - HOCs can offer a more localized approach to state management, allowing you to encapsulate state logic within the component tree without relying on a global state container. 
+
+  - Global state management in React can be achieved using various tools and libraries like Redux, MobX, or React Context API. However, using HOCs is another approach that allows you to share state and functionality across multiple components in a more localized manner.
+
+  - By using this approach, you can manage the state in a more localized and composable way, making it easier to understand and maintain your code. Keep in mind that if your application's  state management requirements grow complex, using dedicated state management libraries like Redux or MobX might still be a more suitable solution.
+
+
+
+What is render props pattern?
+============================
+
+   - The tern 'render prop' refers to a technique for sharing common logic between react components by using prop whose value is a function.
+
+
+What is custom hook?
+===================
+
+
+   - In React.js, a "Custom Hook" is a JavaScript function that allows you to encapsulate reusable logic and stateful behavior to be shared across different components.
+
+   - Custom Hooks are powerful because they allow you to abstract complex logic and state management into separate units of functionality, making your components cleaner, more focused, and easier to maintain.
+ 
+   - They also promote code sharing and prevent duplication of logic across different components.
+
+   - Custom Hooks follow a specific naming convention by starting the function name with the prefix "use." For example, a custom hook for handling state might be named useCustomState, and one for fetching data might be named useCustomFetch.
+
+     
+
+What is Virtual DOM?
+===================
+
+ - In React.js, the Virtual DOM is a lightweight, in-memory representation of the actual DOM in the browser. It is a key concept in React's rendering process and plays a crucial role in optimizing the performance of React applications.
+
+ - When you create a React component, you define its structure using JSX,React takes these JSX components and converts them into Virtual DOM representation.
+
+   Here's how the Virtual DOM works:
+
+  1) Component rendering (Create the Virtual DOM Tree:): When you render a React component, React creates a Virtual DOM tree that mirrors the structure of your JSX components.
+
+  2) State/props changes: When there's a change in the application's state or props, a new Virtual DOM tree is generated for the updated component and its children. This represents the desired state of the UI.
+
+  3) Virtual DOMs comparison (Diffing:): React then compares the new Virtual DOM tree with the previous one to determine the minimal number of changes needed to update the actual DOM.
+
+  4) Recursive Comparison: During the diffing process, React compares nodes in both Virtual DOM trees. It checks whether a node is different between the two trees based on its type (e.g, HTML element, functional component, class component) and its key (if provided). If the type or key is different, React considers the nodes to be different and proceeds to update that part of the tree.
+
+  4) Reconciliation: After calculating the differences, React applies the necessary updates only to the real DOM nodes that require changes. This process of updating only the specific parts of the DOM is known as "reconciliation" and is much more efficient than directly updating the      entire DOM.
+
+  5) Actual DOM update: Finally, React applies the "diff" to the real DOM in a single batch update, avoiding excessive direct manipulation of the DOM, which can be slow and resource-intensive.
+
+  - In summary, the Virtual DOM is an essential part of React's rendering process that acts as a middle layer between your React components and the actual DOM, optimizing performance by efficiently updating only the necessary parts of the DOM.
+
+
+What is Pure component?
+======================
+
+
+   - It is a specific type of React component that automatically implements shouldComponentUpdate () with shallow comparison of props and state to determine whether the component should re-render or not.
+
+   - By default, when a component receives new props or updates its state, React will trigger a re-render of that component and its child components. 
+
+   - However, in some cases, the new props or state might be the same as the previous ones, and the component doesn't need to re-render because it would produce the same output.
+
+   - A Pure Component optimizes this process by doing a shallow comparison of the current and previous props and state.
+ 
+   - If React determines that the new props and state are equal to the previous ones, it will skip the re-rendering process for that component and its children, saving unnecessary rendering cycles.
+
+   - To create a Pure Component in React, you can extend the React.PureComponent class instead of React.Component.
+
+
+       1) Class components
+
+          => conditional rendering
+
+          => Fragment
+
+          => HOC
+    
+          => Render props pattern
+
+          => Pure component
+
+      
+
+What is React.memo() in react?
+=============================
+
+
+   - React.memo is a higher-order component (HOC) provided by React that is used for optimizing functional components by preventing unnecessary re-renders.
+ 
+   - It is similar to React.PureComponent for class components, but it is specifically designed to work with functional components.
+
+   - By default, when a functional component is re-rendered, it re-executes its entire function body, potentially recalculating values and causing re-renders for its child components.
+     In some cases, this can lead to performance issues, especially when the component receives the same props and its rendering output would be identical.
+
+   - React.memo optimizes this process by memoizing the component's result and re-rendering it only when its props change. It performs a shallow comparison of the current and previous props, and if they are equal, the component is not re-rendered, and the previously memoized result is used.
+
+   - When you wrap a functional component with React.memo, it will only re-render if its props have changed since the last render. If the props are the same, React will skip the rendering process for that component, preventing unnecessary re-renders and improving performance.
+
+   
+
+What is useMemo ()  hook?
+========================
+
+
+   - In React.js, useMemo is a hook that is used for memoizing expensive computations, preventing unnecessary recalculation of values on each render.
+ 
+   - It allows you to cache the result of a function call and return the cached result when the inputs (dependencies) to that function have not changed since the last render.
+
+   - The useMemo hook takes two arguments: the first argument is the function that computes the value you want to memoize, and the second argument is an array of dependencies. 
+ 
+   - The hook will recompute the value only when one of the dependencies in the array has changed. If the dependencies remain the same between renders, useMemo will return the cached value, avoiding redundant calculations.
+
+
+What is useCallback hook?
+=========================
+
+
+   - In React.js, useCallback is a hook that is used to memoize functions in order to avoid unnecessary re-creations of those functions on every render.
+ 
+   - It is particularly useful when dealing with child components that receive functions as props, as re-creating functions can cause those child components to re-render unnecessarily, leading to performance issues.
+
+     The useCallback hook takes two arguments:
+
+     1) The function that you want to memoize.
+
+     2) An array of dependencies. The memoized callback will only be re-created when any of the dependencies in the array change.
+
+   - Using useCallback is beneficial when dealing with components that receive functions as props, as it can prevent those components from re-rendering needlessly and improve overall performance.
+
+   Summary:
+   -------
+   
+   - A class component that implements either one or both of the life cycle methods static getDerivedStateFromError or componentDidCatch becomes an error boundry component.
+
+   - The static getDerivedStateFromError method is used to render fallback UI after an error is thrown.
+
+   - The componentDidCatch method is used to log error info in console. 
+
+
+
+       2) Functinal components
+
+          => conditional rendering
+
+          => Fragment
+
+          => custom hooks
+
+          => React.memo
+
+          => useMemo
+
+          => useCallback
+
+
+8) Life cycle methods in class components
+   ======================================
+
+
+     1) Mounting phase
+
+     2) Updating phase
+   
+     3) Unmounting phase
+
+     4) Error boundry
+
+
+In React.js, components have a lifecycle that consists of different phases during their creation, updating, and destruction. However, with the introduction of React Hooks, some of the traditional lifecycle methods have been replaced or complemented by new functions. Here is an overview of both the traditional class component lifecycle methods and the corresponding React Hook equivalents:
+
+Class Component Lifecycle Methods:
+----------------------------------
+
+1)Mounting Phase:
+  --------------
+
+1) constructor(props): Initializes the component's state and binds event handlers.
+
+2) static getDerivedStateFromProps(props, state): Used to update the state based on changes in props. Rarely used.
+
+3) render(): Renders the component's UI.
+
+4) componentDidMount(): Invoked immediately after the component is mounted to the DOM. Perfect for side effects like network requests.
+
+2) Updating Phase:
+   --------------
+
+1) static getDerivedStateFromProps(nextProps, prevState): Similar to the mounting phase method, but for updates.
+
+2) shouldComponentUpdate(nextProps, nextState): Determines if the component should re-render, optimizing performance.
+
+3) render(): Renders the updated UI.
+
+4) getSnapshotBeforeUpdate(prevProps, prevState): Captures some information before the component update.
+
+5) componentDidUpdate(prevProps, prevState, snapshot): Invoked after the component update is flushed to the DOM. Useful for side effects.
+
+3) Unmounting Phase:
+   ----------------
+
+1) componentWillUnmount(): Invoked just before the component is unmounted and destroyed. Clean up resources here.
+
+4) Error Handling Phase:
+   --------------------
+
+componentDidCatch(error, info): Used for error boundaries to catch and handle errors within a component's children.
+
+React Hook Equivalents:
+-----------------------
+
+Mounting Phase:
+--------------
+
+useState(initialState): Equivalent to setting state in the constructor.
+useEffect(callback, dependencies): Equivalent to componentDidMount. 
+
+Updating Phase:
+--------------
+
+useEffect(callback, dependencies): Still used for updates and side effects.
+
+
+Unmounting Phase:
+----------------
+
+useEffect(() => () => cleanup, []): Cleanup function to be executed when the component unmounts.
+
+
+Error Handling Phase:
+--------------------
+
+In React functional components, error handling is typically done using a combination of error boundaries and standard JavaScript error handling techniques. Error boundaries are components that catch JavaScript errors anywhere in their child component tree and display an error UI instead of crashing the whole application. Here's how you can handle errors in functional components in React:
+
+Use try...catch Blocks: You can use standard JavaScript try...catch blocks within your functional component to catch errors that occur during rendering or other operations.
+
+Use Error Boundaries: Error boundaries are special components that catch errors from their child components. You can define an error boundary component and wrap your functional component with it.
+
+Use Custom Error Handling Hooks: You can create custom hooks to handle errors in functional components and provide a consistent way of handling errors throughout your application.
+
+import React, { useState } from 'react';
+
+function useErrorHandling() {
+  const [error, setError] = useState(null);
+
+  const handleError = (error) => {
+    setError(error);
+    console.error(error);
+  };
+
+  return { error, handleError };
+}
+
+function MyComponent() {
+  const { error, handleError } = useErrorHandling();
+
+  try {
+    // Your component logic here
+    return <div>{someData}</div>;
+  } catch (error) {
+    handleError(error);
+    return <div>An error occurred: {error.message}</div>;
+  }
+}
+Remember that error boundaries can only catch errors in their child components during rendering. They won't catch errors in event handlers, async code (e.g., setTimeout), or when errors are thrown outside the component tree. For those cases, you may still need to use traditional try...catch blocks or other error-handling techniques.
+
+Additionally, make sure to provide helpful error messages and notifications to users when errors occur, but avoid showing too much technical detail that could potentially expose vulnerabilities.
+
+
+
+9) Side Effects (DOM interaction/ Browser interaction/ API calls)
+=================================================================
+
+     1) class components
+
+        =>componentDidMount
+        =>componentDidUpdate
+        =>componentWillUnmount
+
+     2) functional components
+
+        =>useEffect hook
+
+useEffect hook:
+==============
+
+The useEffect hook is a fundamental part of React functional components that allows you to perform side effects in your components. Side effects can include things like data fetching, DOM manipulation. It's used to handle the lifecycle aspects of a component, similar to how lifecycle methods (componentDidMount, componentDidUpdate, and componentWillUnmount) work in class components.
+
+
+10) refs
+    ====
+
+   - In class components we use React.createRef() 
+
+   - In functional components we use useRef hook 
+   
+   - It is used to access/refer DOM elements in react.
+
+   - By using ref we can also store data in react and it can also update value between re-renders without re-rendering the component.
+ 
+   - The updated value will be tracked by react but component will not be re-rendered. 
+     For storing value in react we have state variable.
+
+   - The value will persist through the re-renders while also not causing any additional renders when its value changes.
+
+   - The main purpose of ref variable in react to interact with DOM.
+
+     
+
+
+11) Portals
+    =======
+
+    
+  - Portal is an advanced concept in reacts which provides a way to render child element outside of parent DOM hierarchy.
+
+  - If any child component having modal/popup/tooltip in its JSX then its parent component's css will be effected.
+
+  - To implement a portal in React, you use the ReactDOM.createPortal() method. This method allows you to specify the content you want to render and the target DOM element where it should be inserted.
+
+       - Create one more div in index.html file to render child component in which modal develops.
+
+              <div id='model-root'></div>
+
+       - In child component JSX use the below to create portal. 
+
+            => ReactDOM.createPortal(modal, document.getElementById(model-root))
+
+  - By using portals, you can achieve more flexibility in rendering elements and create better user experiences when it comes to managing overlapping or out-of-flow components in React applications.
+
+   .modal-overlay {
+
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+    background-color:rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+ .content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+
+  box-shadow: 0 2px 8px rgba(0 0 0 0.5)
+  }
+
+ /* .app {
+      position: relative
+    } */
 
 
