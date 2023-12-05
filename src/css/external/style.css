@@ -1,0 +1,15 @@
+.btn{
+  background-color: red;
+  padding: 10px 30px;
+  color: black;
+}
+
+.success{
+  background-color: green;
+  color: white;
+}
+
+.error{
+background-color: red;
+color: black;
+}
