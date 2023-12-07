@@ -1,16 +1,26 @@
+import './App.css';
 // import FunCom from './jsx/FunCom';
 // import ClassCom from './components/ClassCom';
 // import Parent from './props/child-child/Parent';
 // import Parent from './life-cycle-methods-(in class only)/errorBoundry/Parent';
-import Parent from './state/localSate/functionalCom/useReducer/Parent';
+// import Child1 from './state/localSate/functionalCom/useReducer/Child1';
+// import Child2 from './state/localSate/functionalCom/useReducer/Child2';
 import Container from './side-effects/unmount/Container';
 import ReferValue from './Refs/classCom/ReferValue';
 // import Parent from './portals/Parent';
 import Child from './css/inline/Child';
-import Child1 from './css/css-modules/Child1';
-import Child2 from './css/css-modules/Child2';
+// import Child1 from './css/css-modules/Child1';
+// import Child2 from './css/css-modules/Child2';
 import Child3 from './css/css-modules/Child3';
 import Child4 from './css/css-modules/Child4';
+import Parent from './state/localSate/functionalCom/useReducer/functionalCom/Parent';
+import Home from './Routing/components/Home';
+import About from './Routing/components/About';
+import Products from './Routing/components/Products';
+import { Link, Route, Routes } from 'react-router-dom';
+import Footer from './Routing/components/Footer';
+import ErrorFound from './Routing/components/ErrorFound';
+import ProductDec from './Routing/components/ProductDec';
 // import Parent from './css/external/Parent';
 
 function App() {
@@ -31,7 +41,34 @@ function App() {
       <Child2 />
       <Child3 />
       <Child4 /> */}
-      <Parent />
+      {/* <Parent /> */}
+      {/* <Child1 />
+      <Child2 /> */}
+      {/* <Parent /> */}
+      <ul>
+        <li>
+          <Link to='/'>Home</Link>
+        </li>
+        <li>
+          <Link to='/about'>About</Link>
+        </li>
+        <li>
+          <Link to='/products'>Products</Link>
+        </li>
+      </ul>
+      <hr />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/products' element={<Products />} />
+        <Route path='/products/:id' element={<ProductDec />} />
+
+        <Route path='*' element={<ErrorFound />} />
+      </Routes>
+      <Footer />
+      {/* <Home />
+      <About />
+      <Products /> */}
     </div>
   );
 }

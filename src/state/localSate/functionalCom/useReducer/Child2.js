@@ -112,7 +112,7 @@ var reducer = (state = initialState, action) => {
   }
 };
 
-function Parent() {
+function Child2() {
   var [count1, dispatch1] = useReducer(reducer, initialState);
   var [count2, dispatch2] = useReducer(reducer, initialState);
   var [count3, dispatch3] = useReducer(reducer, initialState);
@@ -146,4 +146,4 @@ function Parent() {
   );
 }
 
-export default Parent;
+export default Child2;

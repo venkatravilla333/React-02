@@ -1,10 +1,11 @@
 import React from 'react';
 
-import './child3.css';
+// import './Child3.css';
+import Child1Css from './Child1.module.css';
 function Child4() {
   return (
     <div>
-      <button className='btn'>child4</button>
+      <button className={Child1Css.btn}>child4</button>
     </div>
   );
 }
