@@ -1,18 +1,17 @@
 import React from 'react';
-
 var obj = {
-  marginTop: '300px',
+  margin: 0,
   background: 'black',
   color: 'white',
   height: '40px',
   textAlign: 'center',
 };
-function Footer() {
+function Header() {
   return (
-    <div style={obj}>
-      <p>This is Footer component</p>
+    <div>
+      <h2 style={obj}>This is Header</h2>
     </div>
   );
 }
 
-export default Footer;
+export default Header;

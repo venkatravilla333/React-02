@@ -17,13 +17,16 @@ import Parent from './state/localSate/functionalCom/useReducer/functionalCom/Par
 import Home from './Routing/components/Home';
 import About from './Routing/components/About';
 import Products from './Routing/components/Products';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import Footer from './Routing/components/Footer';
 import ErrorFound from './Routing/components/ErrorFound';
 import ProductDec from './Routing/components/ProductDec';
+import Login from './Routing/components/Login';
+import Header from './Routing/components/Header';
 // import Parent from './css/external/Parent';
 
 function App() {
+  var location = useLocation();
   return (
     <div className='App'>
       {/* <h1>App component</h1> */}
@@ -45,9 +48,14 @@ function App() {
       {/* <Child1 />
       <Child2 /> */}
       {/* <Parent /> */}
+      {/* <Header /> */}
+      {location.pathname !== '/login' && <Header />}
       <ul>
         <li>
           <Link to='/'>Home</Link>
+        </li>
+        <li>
+          <Link to='/login'>Login</Link>
         </li>
         <li>
           <Link to='/about'>About</Link>
@@ -59,13 +67,16 @@ function App() {
       <hr />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/login' element={<Login />} />
         <Route path='/about' element={<About />} />
-        <Route path='/products' element={<Products />} />
-        <Route path='/products/:id' element={<ProductDec />} />
+        <Route path='/products' element={<Products />}>
+          <Route path=':id' element={<ProductDec />} />
+        </Route>
 
         <Route path='*' element={<ErrorFound />} />
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
+      {location.pathname !== '/login' && <Footer />}
       {/* <Home />
       <About />
       <Products /> */}
