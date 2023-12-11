@@ -12,7 +12,7 @@ import ReferValue from './Refs/classCom/ReferValue';
 import Child from './css/inline/Child';
 // import Child1 from './css/css-modules/Child1';
 // import Child2 from './css/css-modules/Child2';
-import Child3 from './css/css-modules/Child3';
+// import Child3 from './css/css-modules/Child3';
 import Child4 from './css/css-modules/Child4';
 import Parent from './state/localSate/functionalCom/useReducer/functionalCom/Parent';
 import Home from './Routing/components/Home';
@@ -25,6 +25,13 @@ import ProductDec from './Routing/components/ProductDec';
 import Login from './Routing/components/Login';
 import Header from './Routing/components/Header';
 import React from 'react';
+import Child1 from './performance/remove-duplicateLogic/functionalCom/Child1';
+import Child2 from './performance/remove-duplicateLogic/functionalCom/Child2';
+import Child3 from './performance/remove-duplicateLogic/functionalCom/Child3';
+// import Child2 from './performance/remove-duplicateLogic/classCom/withDuplicate/Child2';
+// import Child3 from './performance/remove-duplicateLogic/classCom/withDuplicate/Child3';
+import Render from './performance/remove-duplicateLogic/classCom/RenderProps/Render';
+// import { Hoc } from './performance/remove-duplicateLogic/classCom/Hoc/Hoc';
 // import LazyComponent from './Routing/components/LazyComponent';
 var LazyComponent = React.lazy(() =>
   import('./Routing/components/LazyComponent')
@@ -33,7 +40,7 @@ var LazyComponent = React.lazy(() =>
 // import Parent from './css/external/Parent';
 
 function App() {
-  var location = useLocation();
+  // var location = useLocation();
   return (
     <div className='App'>
       {/* <h1>App component</h1> */}
@@ -56,7 +63,7 @@ function App() {
       <Child2 /> */}
       {/* <Parent /> */}
       {/* <Header /> */}
-      {location.pathname !== '/login' && <Header />}
+      {/* {location.pathname !== '/login' && <Header />}
       <ul>
         <li>
           <NavLink
@@ -98,10 +105,26 @@ function App() {
         />
       </Routes>
       {/* <Footer /> */}
-      {location.pathname !== '/login' && <Footer />}
+      {/* {location.pathname !== '/login' && <Footer />} */} 
       {/* <Home />
       <About />
       <Products /> */}
+      {/* <Child1 />
+      <Child2 />
+      <Child3/> */}
+      {/* <Hoc/> */}
+      {/* <Render render={(count, increaseCount) => {
+        return <Child1 count={count} increaseCount={ increaseCount} />
+      } } />
+      <Render render={(count, increaseCount) => {
+        return <Child2 count={count} increaseCount={ increaseCount} />
+      } } />
+      <Render render={(count, increaseCount) => {
+        return <Child3 count={count} increaseCount={ increaseCount} />
+      } } /> */}
+      <Child1/>
+      <Child2/>
+      <Child3/>
     </div>
   );
 }
