@@ -1,6 +1,8 @@
 import './App.css';
 import './index.css';
-import Parent from './performance/aviod-re-rendering-process/classCom/Parent';
+import Calvalue from './performance/aviod-re-rendering-process/functionalCom/Calvalue';
+import ClassCom from './performance/aviod-re-rendering-process/functionalCom/ClassCom';
+import Parent from './performance/aviod-re-rendering-process/functionalCom/Parent';
 // import FunCom from './jsx/FunCom';
 // import ClassCom from './components/ClassCom';
 // import Parent from './props/child-child/Parent';
@@ -128,7 +130,10 @@ function App() {
       <Child2/>
       <Child3/> */}
      
-     <Parent/>
+      {/* <ClassCom /> */}
+      <Parent/>
+
+      {/* <Calvalue/> */}
       
       
     </div>
