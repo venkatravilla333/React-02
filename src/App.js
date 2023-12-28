@@ -1,8 +1,10 @@
 import './App.css';
+import Todo from './Todo-App/Todo';
 import './index.css';
-import Calvalue from './performance/aviod-re-rendering-process/functionalCom/Calvalue';
-import ClassCom from './performance/aviod-re-rendering-process/functionalCom/ClassCom';
-import Parent from './performance/aviod-re-rendering-process/functionalCom/Parent';
+// import Calvalue from './performance/aviod-re-rendering-process/functionalCom/Calvalue';
+// import ClassCom from './performance/aviod-re-rendering-process/functionalCom/ClassCom';
+// import Parent from './performance/aviod-re-rendering-process/functionalCom/Parent';
+import Parent from './state/globalState/react-components/functionalCom/Parent';
 // import FunCom from './jsx/FunCom';
 // import ClassCom from './components/ClassCom';
 // import Parent from './props/child-child/Parent';
@@ -131,9 +133,10 @@ function App() {
       <Child3/> */}
      
       {/* <ClassCom /> */}
-      <Parent/>
+      {/* <Parent/> */}
 
       {/* <Calvalue/> */}
+      <Todo/>
       
       
     </div>

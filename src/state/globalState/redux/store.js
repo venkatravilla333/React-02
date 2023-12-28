@@ -12,5 +12,7 @@ var rootReducer = combineReducers({
 
 export var store = createStore(
   rootReducer,
-  composeWithDevTools(applyMiddleware(logger))
+  // composeWithDevTools(applyMiddleware(logger))
 );
+
+console.log(store)

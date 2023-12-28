@@ -3,6 +3,7 @@ import B from './B';
 
 import { Provider } from 'react-redux';
 import { store } from '../../redux/store';
+console.log(store)
 function Parent() {
   return (
     <Provider store={store}>
